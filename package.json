@@ -2,7 +2,7 @@
   "name": "music-teacher-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
     "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
@@ -16,5 +16,8 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.0.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
   }
 }
