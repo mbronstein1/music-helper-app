@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const UserSchema = require('./User');
 
 const assignmentsSchema = new Schema({
-  nextLesson: Date,
+  dueDate: Date,
   assignment: [
     {
       topic: String,
