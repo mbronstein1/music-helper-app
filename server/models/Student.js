@@ -1,9 +1,9 @@
 const { Schema, model } = require('mongoose');
-const UserSchema = require('./User');
+const userSchema = require('./User');
 
 const assignmentsSchema = new Schema({
   dueDate: Date,
-  assignment: [
+  assignments: [
     {
       topic: String,
       list: [String],
@@ -12,7 +12,7 @@ const assignmentsSchema = new Schema({
 });
 
 const studentSchema = new Schema({
-  ...UserSchema.obj,
+  ...userSchema.obj,
   instruments: [String],
   homework: [assignmentsSchema],
 });
