@@ -6,8 +6,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = process.env.PORT || 3001;
 const db = require('./config/connection');
+const cp = require('cookie-parser');
 
 const app = express();
+app.use(cp());
 app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
