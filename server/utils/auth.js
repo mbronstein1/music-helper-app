@@ -19,10 +19,9 @@ module.exports = {
       return res.status(401).json({ message: 'Invalid token' });
     }
   },
-  signToken: function (req, res) {
-    const payload = req.body;
+  signToken: function ({ email, firstName, lastName, _id }) {
+    const payload = { email, firstName, lastName, _id };
     const token = jwt.sign(payload, secretKey, { expiresIn: expiration });
-    res.cookie('token', token, { httpOnly: true });
-    res.json({ token, payload, message: 'Sign-in successful' });
+    return token;
   },
 };

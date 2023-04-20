@@ -4,7 +4,7 @@ const dummyTeacher = {
   email: 'test@test.com',
   password: '12345678',
   institution: 'Northwestern University',
-  students: ['644047eb4af5af3422f84f77'],
+  students: ['6441a8eed5c6ccbb27583996'],
 };
 
 module.exports = dummyTeacher;

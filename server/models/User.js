@@ -1,5 +1,4 @@
 const { Schema } = require('mongoose');
-const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
   firstName: {
@@ -22,18 +21,5 @@ const userSchema = new Schema({
     minLength: 6,
   },
 });
-
-//Hashing user password on signup
-userSchema.pre('save', async function (next) {
-  if (this.isNew || this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 10);
-  }
-  next();
-});
-
-//Comparing inputted password with user's stored hashed password on login
-userSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
-};
 
 module.exports = userSchema;
