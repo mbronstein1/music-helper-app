@@ -6,6 +6,7 @@ const assignmentsSchema = new Schema({
   dueDate: Date,
   assignments: [
     {
+      _id: false,
       topic: String,
       list: [String],
     },

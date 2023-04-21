@@ -10,15 +10,15 @@ const dummyStudent = {
       assignments: [
         {
           topic: 'Etudes',
-          list: ['Etude 1, Etude 2'],
+          list: ['Etude 1', 'Etude 2'],
         },
         {
           topic: 'Solos',
-          list: ['Solo 1, Solo 2'],
+          list: ['Solo 1', 'Solo 2'],
         },
         {
           topic: 'Excerpts',
-          list: ['Excerpt 1, Excerpt 2'],
+          list: ['Excerpt 1', 'Excerpt 2'],
         },
       ],
     },
