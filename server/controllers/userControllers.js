@@ -43,10 +43,23 @@ module.exports = {
     try {
       const users = await obj[req.params.userRole].find().populate(shouldPopulateStudents).select('-__v');
       if (!users) {
-        return res.status(401).json({ message: 'No students found!' });
+        return res.status(401).json({ message: 'No user found!' });
       }
 
       res.json(users);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+  async getUserById(req, res) {
+    const shouldPopulateStudents = req.params.userRole === 'teacher' ? 'students' : '';
+    try {
+      const user = await obj[req.params.userRole].findById(req.params.id).populate(shouldPopulateStudents).select('-__v');
+      if (!user) {
+        return res.status(401).json({ message: 'No user found!' });
+      }
+
+      res.json(user);
     } catch (err) {
       res.status(500).json(err);
     }
