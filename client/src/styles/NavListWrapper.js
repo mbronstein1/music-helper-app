@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const NavListItems = styled.ul`
+const NavListWrapper = styled.ul`
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -26,21 +26,8 @@ const NavListItems = styled.ul`
   & li a:hover::after {
     width: 100%;
     height: 1px;
-    background-color: white;
-  }
-
-  & button {
-    border: none;
-    padding: 0.5rem 1rem;
-    background-color: ${props => props.theme.secondary};
-    color: inherit;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-  }
-
-  & button:hover {
     background-color: ${props => props.theme.hover};
   }
 `;
 
-export default NavListItems;
+export default NavListWrapper;

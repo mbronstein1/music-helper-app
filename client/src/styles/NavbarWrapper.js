@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const Navbar = styled.div`
+const NavbarWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: ${props => props.theme.primary};
-  padding: 0.5rem 2rem;
-  color: ${props => props.theme.tertiary};
+  padding: 1.5rem 2rem;
+  color: ${props => props.theme.secondary};
 `;
 
-export default Navbar;
+export default NavbarWrapper;

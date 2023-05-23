@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import RootLayout from './components/UI/RootLayout';
+import LandingPage from './pages/LandingPage';
 
 function App() {
   const router = createBrowserRouter([
@@ -7,12 +8,12 @@ function App() {
       path: '/',
       element: <RootLayout />,
       // errorElement: <Error />,
-      // children: [
-      //   {
-      //     index: true,
-      //     element: <LandingPage />,
-      //   },
-      // ],
+      children: [
+        {
+          index: true,
+          element: <LandingPage />,
+        },
+      ],
     },
   ]);
 

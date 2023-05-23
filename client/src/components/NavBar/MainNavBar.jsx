@@ -1,23 +1,24 @@
 import React from 'react';
-import Navbar from '../../styles/Navbar';
+import NavbarWrapper from '../../styles/NavbarWrapper';
 import NavItems from './NavItems';
-import NavListItems from '../../styles/NavListItems';
+import NavListWrapper from '../../styles/NavListWrapper';
+import Button from '../../styles/Button';
 
 const items = ['ABOUT', 'LOG IN'];
 
 const MainNavBar = () => {
   return (
-    <Navbar>
-      <h1>Logo</h1>
+    <NavbarWrapper>
+      <h1>LessonSync</h1>
       <div>
-        <NavListItems>
+        <NavListWrapper>
           {items.map((item, i) => (
             <NavItems key={`${item}: ${i}`} item={item} />
           ))}
-          <button type='button'>SIGN UP</button>
-        </NavListItems>
+          <Button type='button'>SIGN UP</Button>
+        </NavListWrapper>
       </div>
-    </Navbar>
+    </NavbarWrapper>
   );
 };
 
