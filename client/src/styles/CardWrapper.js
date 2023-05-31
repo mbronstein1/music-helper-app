@@ -12,6 +12,17 @@ const CardWrapper = styled.section`
   line-height: ${props => props.lineHeight};
   margin-top: ${props => props.margin};
   z-index: 0;
+
+  & h2 {
+    border-bottom: 1px solid ${props => props.theme.secondary};
+    padding-bottom: 1rem;
+    margin-inline: 5rem;
+  }
+
+  & h3 {
+    font-size: 1.2rem;
+    padding: 1.5rem 1rem;
+  }
 `;
 
 export default CardWrapper;

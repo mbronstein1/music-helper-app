@@ -8,6 +8,7 @@ const Button = styled.button`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-size: ${props => props.$primary && '1.3rem'};
+  border-radius: 12px;
 
   &:hover {
     background-color: ${props => props.theme.hover};

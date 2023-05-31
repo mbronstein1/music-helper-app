@@ -4,7 +4,7 @@ import NavItems from './NavItems';
 import NavListWrapper from '../../styles/NavListWrapper';
 import Button from '../../styles/Button';
 
-const items = ['ABOUT', 'LOG IN'];
+const items = ['LEARN MORE', 'LOG IN'];
 
 const MainNavBar = () => {
   return (

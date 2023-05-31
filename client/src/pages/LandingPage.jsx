@@ -15,8 +15,6 @@ const LandingPage = () => {
       <LandingPageWrapper>
         <CardWrapper fontSize='2rem'>
           <h2>Welcome to LessonSync!</h2>
-        </CardWrapper>
-        <CardWrapper width='400px' fontSize='1.2rem' lineHeight='1.5'>
           <h3>
             <em>Empowering Teachers and Students to Simplify, Schedule, and Sync Their Musical Journeys</em>
           </h3>
