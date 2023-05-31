@@ -1,7 +1,6 @@
 import React from 'react';
 import LandingPageWrapper from '../styles/LandingPageWrapper';
 import CardWrapper from '../styles/CardWrapper';
-import Overlay from '../styles/Overlay';
 import Form from '../styles/Form';
 import Button from '../styles/Button';
 import FormInputWrapper from '../styles/FormInputWrapper';

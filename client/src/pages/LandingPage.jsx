@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import LandingPageWrapper from '../styles/LandingPageWrapper';
-import Overlay from '../styles/Overlay';
 import Button from '../styles/Button';
 import LandingPageButtonContainer from '../styles/LandingPageButtonContainer';
 import CardWrapper from '../styles/CardWrapper';
