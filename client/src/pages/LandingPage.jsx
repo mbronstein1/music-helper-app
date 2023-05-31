@@ -11,7 +11,6 @@ const LandingPage = () => {
 
   return (
     <>
-      <Overlay />
       <LandingPageWrapper>
         <CardWrapper fontSize='2rem'>
           <h2>Welcome to LessonSync!</h2>

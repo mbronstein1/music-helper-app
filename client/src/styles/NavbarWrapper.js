@@ -7,6 +7,11 @@ const NavbarWrapper = styled.header`
   background-color: ${props => props.theme.primary};
   padding: 1.5rem 2rem;
   color: ${props => props.theme.secondary};
+
+  & a {
+    color: ${props => props.theme.secondary};
+    text-decoration: none;
+  }
 `;
 
 export default NavbarWrapper;
