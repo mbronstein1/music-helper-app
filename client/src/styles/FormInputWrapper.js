@@ -18,6 +18,12 @@ const FormInputWrapper = styled.div`
   & input {
     width: 200px;
   }
+
+  & label:has(+ input:required)::after {
+    content: '*';
+    color: red;
+    margin-left: 0.2rem;
+  }
 `;
 
 export default FormInputWrapper;

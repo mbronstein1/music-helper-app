@@ -22,16 +22,15 @@ module.exports = {
     }
   },
 
-  uploadImage(req, res) {
+  async uploadImage(req, res) {
     const s3Params = paramsConfig(req.file);
-    s3.upload(s3Params, (err, data) => {
-      if (err) {
-        console.error(err);
-        res.status(500).send(err);
-      } else {
-        res.status(200).json(data);
-      }
-    });
+    try {
+      const imageData = await s3.upload(s3Params).promise();
+      res.status(200).json(imageData);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send(err);
+    }
   },
 
   async loginUser(req, res) {
