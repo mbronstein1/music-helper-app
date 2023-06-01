@@ -1,5 +1,9 @@
 const { Teacher, Student } = require('../models');
 const { signToken } = require('../utils/auth');
+const paramsConfig = require('../utils/params-config');
+const AWS = require('aws-sdk');
+
+const s3 = new AWS.S3({ apiVersion: '2006-03-01' });
 
 const obj = {
   student: Student,
@@ -16,6 +20,18 @@ module.exports = {
       console.log(err);
       res.status(500).json(err);
     }
+  },
+
+  uploadImage(req, res) {
+    const s3Params = paramsConfig(req.file);
+    s3.upload(s3Params, (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send(err);
+      } else {
+        res.status(200).json(data);
+      }
+    });
   },
 
   async loginUser(req, res) {
