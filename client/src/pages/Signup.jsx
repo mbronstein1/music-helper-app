@@ -1,10 +1,13 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import theme from '../themes/colorThemes';
 import LandingPageWrapper from '../styles/LandingPageWrapper';
 import CardWrapper from '../styles/CardWrapper';
 import Form from '../styles/Form';
 import Button from '../styles/Button';
 import FormInputWrapper from '../styles/FormInputWrapper';
 import FormInput from '../components/UI/FormInput';
+import MoonLoader from 'react-spinners/MoonLoader';
 
 const Signup = () => {
   const [userInfo, setUserInfo] = useState({
@@ -15,7 +18,13 @@ const Signup = () => {
     institution: '',
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState({ state: false, message: '' });
+  const [successMessage, setSuccessMessage] = useState({ state: false, message: '' });
+
   const imageRef = useRef(null);
+
+  const navigate = useNavigate();
 
   const inputChangeHandler = e => {
     const { name, value } = e.target;
@@ -24,6 +33,9 @@ const Signup = () => {
 
   const formSubmitHandler = e => {
     e.preventDefault();
+
+    setError({ state: false, message: '' });
+    setIsLoading(true);
 
     const data = new FormData();
     data.append('profilePic', imageRef.current.files[0]);
@@ -42,6 +54,7 @@ const Signup = () => {
 
         return imageData.Location;
       } catch (err) {
+        setError({ state: true, messsage: 'Something went wrong with the image upload. Please try again!' });
         console.error(err);
       }
     };
@@ -69,9 +82,14 @@ const Signup = () => {
         const data = await response.json();
 
         console.log('Form submitted! -> ', data);
+
+        setSuccessMessage({ state: true, message: 'Successfully signed up!' });
       } catch (err) {
+        setError({ state: true, message: 'Could not send form. Please try again!' });
         console.error(err);
       }
+
+      setIsLoading(false);
     };
 
     sendToDB();
@@ -101,9 +119,13 @@ const Signup = () => {
             </FormInputWrapper>
             <FormInputWrapper>
               <FormInput id='institution' type='text' value={userInfo.institution} onChange={inputChangeHandler} label='Institution' />
-              <FormInput id='profilePic' type='file' ref={imageRef} label='Profile Picture' />
+              <FormInput id='profilePic' type='file' ref={imageRef} label='Profile Picture' accept='image/*' />
             </FormInputWrapper>
-            <Button type='submit'>Submit</Button>
+            <Button type='submit' disabled={isLoading}>
+              {isLoading ? <MoonLoader size={20} color={theme.secondary} loading={isLoading} /> : 'Submit'}
+            </Button>
+            {error && <p style={{ color: 'red', textAlign: 'center' }}>{error.message}</p>}
+            {successMessage.state && <p style={{ color: 'green', textAlign: 'center' }}>{successMessage.message}</p>}
           </Form>
         </CardWrapper>
       </LandingPageWrapper>
